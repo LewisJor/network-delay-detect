@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+*.log.*
+
+# Local data output
+data/sensor_logs/
+data/aggregator_logs/
+data/*.jsonl
+
+# Docker
+*.pid
+*.sock
+*.tar
+docker-compose.override.yml
+
+# Environment
+.env
+*.env
+ENCRYPTION_KEY*
+
+# OS-specific
+.DS_Store
+Thumbs.db

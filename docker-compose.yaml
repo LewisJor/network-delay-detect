@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  aggregator:
+    build:
+      context: .
+      dockerfile: ./docker/aggregator/Dockerfile
+    container_name: aggregator
+    environment:
+      - ENCRYPTION_KEY=<env:ENCRYPTION_KEY>
+    networks:
+      - dtn_net
+
+  sensor_a:
+    build:
+      context: .
+      dockerfile: ./docker/sensor/Dockerfile
+    container_name: sensor_a
+    environment:
+      - SENSOR_ID=sensor_a
+      - ENCRYPTION_KEY=<env:ENCRYPTION_KEY>
+    networks:
+      - dtn_net
+
+  sensor_b:
+    build:
+      context: .
+      dockerfile: ./docker/sensor/Dockerfile
+    container_name: sensor_b
+    environment:
+      - SENSOR_ID=sensor_b
+      - ENCRYPTION_KEY=<env:ENCRYPTION_KEY>
+    networks:
+      - dtn_net
+
+  sensor_c:
+    build:
+      context: .
+      dockerfile: ./docker/sensor/Dockerfile
+    container_name: sensor_c
+    environment:
+      - SENSOR_ID=sensor_c
+      - ENCRYPTION_KEY=<env:ENCRYPTION_KEY>
+    networks:
+      - dtn_net
+
+networks:
+  dtn_net:
+    driver: bridge
